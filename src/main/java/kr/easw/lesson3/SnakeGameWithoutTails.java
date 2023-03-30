@@ -84,7 +84,7 @@ public class SnakeGameWithoutTails {
         for (int i = 0; i < toPlace; i++) {
             int retry = 0;
             while (retry < 5) {
-                SnakeLocation locate = new SnakeLocation(RANDOM.nextDouble() * BOARD_SIZE, RANDOM.nextDouble() * BOARD_SIZE);
+                SnakeLocation locate = new SnakeLocation((int) (RANDOM.nextDouble() * BOARD_SIZE), (int) (RANDOM.nextDouble() * BOARD_SIZE));
                 if (board[locate.getX()][locate.getY()] != 0) {
                     retry++;
                     continue;
