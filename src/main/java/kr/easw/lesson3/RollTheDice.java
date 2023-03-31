@@ -1,5 +1,6 @@
 package kr.easw.lesson3;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class RollTheDice {
@@ -24,11 +25,21 @@ public class RollTheDice {
      * <p>
      * 입력값은 일반적으로는 360을 넘지 않으나, 낮은 확률로 360을 넘습니다.
      * 이러한 경우, extendArray 메서드를 구현하여 이를 이용해 배열을 재선언해야 합니다.
-     *
+     * <p>
      * 또한, 입력값이 double임으로 60으로 나눈 이후 int로 캐스팅이 필요합니다.
      */
     private static void fillArray(double result) {
-        throw new RuntimeException("이 코드 라인을 지우고, 이곳에서 작성하십시오.");
+        // 주사위의 눈금을 구하기 위해 60으로 나눈 후, int로 캐스팅해 소수점을 제거합니다.
+        int dice = (int) (result / 60);
+        // 현재 주사위의 눈금이 frequency 배열의 크기보다 큰지 비교합니다.
+        // 값이 360일 경우에 60으로 나눌 경우, 인덱스가 6이 되어 7번째 자리를 요구하기 떄문에
+        // >=를 사용하여 비교해야 합니다.
+        if (dice >= frequency.length) {
+            // 만약 대상 눈금이 배열 크기보다 크거나 같다면, 눈금의 크기만큼 늘린 배열로 frequency 배열을 교체합니다.
+            frequency = extendArray(dice + 1);
+        }
+        // 해당 눈금이 나온 빈도를 1 증가시킵니다.
+        frequency[dice]++;
     }
 
     /**
@@ -36,6 +47,9 @@ public class RollTheDice {
      * 주어진 값의 크기만큼 배열을 생성한 후, 기존 배열에 있던 데이터를 복사해 반환해야 합니다.
      */
     private static int[] extendArray(int next) {
-        throw new RuntimeException("이 코드 라인을 지우고, 이곳에서 작성하십시오.");
+        // 이전 강의에서 소개된 Arrays.copyOf를 통해 새 배열을 생성합니다.
+        // 첫번째 변수로 frequency를 넣어 이 변수를 복사하겠다는것을 알리고,
+        // next 파라미터로 이 길이까지 증가시키겠다는것을 나타냅니다.
+        return Arrays.copyOf(frequency, next);
     }
 }

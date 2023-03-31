@@ -34,6 +34,9 @@ public class SimpleArray {
      * * ^2는 제곱의 의미로 사용되었습니다.
      */
     private static void fillArray(int index) {
-        throw new RuntimeException("이 코드 라인을 지우고, 이곳에서 작성하십시오.");
+        // 중복된 연산을 막기 위해 변수로 지정합니다.
+        int result = index * 7 / 5;
+        // 변수에 선언된 값끼리 곱해 제곱으로 만든 후, 배열의 해당 인덱스에 설정합니다.
+        arrays[index] = result * result;
     }
 }
