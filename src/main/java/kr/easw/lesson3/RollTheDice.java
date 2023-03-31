@@ -50,6 +50,6 @@ public class RollTheDice {
         // 이전 강의에서 소개된 Arrays.copyOf를 통해 새 배열을 생성합니다.
         // 첫번째 변수로 frequency를 넣어 이 변수를 복사하겠다는것을 알리고,
         // next 파라미터로 이 길이까지 증가시키겠다는것을 나타냅니다.
-        return Arrays.copyOf(frequency, next);
+        return Arrays.copyOf(frequency, next + 1);
     }
 }
